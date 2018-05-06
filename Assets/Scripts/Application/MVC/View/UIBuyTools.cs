@@ -12,6 +12,9 @@ public class UIBuyTools : View
     public Text txtGizmoMagnet;
     public Text txtGizmoInvincible;
 
+    public MeshRenderer ballMesh;
+
+    public SkinnedMeshRenderer SkinMeshRender;
 
     public override string Name
     {
@@ -38,10 +41,13 @@ public class UIBuyTools : View
         ShowOrHide(gm.Invincible, txtGizmoInvincible);
         ShowOrHide(gm.m_Magnet, txtGizmoMagnet);
         ShowOrHide(gm.Multiply, txtGizmoMultiply);
+        ballMesh.material = Game.Instance.staticData.GetFootballInfo(gm.TakeonFootball).FootballMaterial;
+        SkinMeshRender.material = Game.Instance.staticData.GetPlayerSkinInfo(gm.TakeonSkin.SkinID, gm.TakeonSkin.ClothID).FootballMaterial;
     }
 
     public void OnMagnetClick(int i =300)
     {
+        Game.Instance.sound.PlayEffect("Se_UI_Button");
         BuyToolsArgs e = new BuyToolsArgs
         {
             kind = ItemKind.MagnetItem,
@@ -53,6 +59,7 @@ public class UIBuyTools : View
 
     public void OnInvincibleClick(int i = 500)
     {
+        Game.Instance.sound.PlayEffect("Se_UI_Button");
         BuyToolsArgs e = new BuyToolsArgs
         {
             kind = ItemKind.InvincibleItem,
@@ -64,6 +71,7 @@ public class UIBuyTools : View
 
     public void OnMultiplyClick(int i = 100)
     {
+        Game.Instance.sound.PlayEffect("Se_UI_Button");
         BuyToolsArgs e = new BuyToolsArgs
         {
             kind = ItemKind.MultiplyItem,
@@ -75,6 +83,7 @@ public class UIBuyTools : View
 
     public void OnRandomClick(int i = 300)
     {
+        Game.Instance.sound.PlayEffect("Se_UI_Button");
         int t = Random.Range(0, 3);
         switch (t)
         {
@@ -107,7 +116,13 @@ public class UIBuyTools : View
 
     public void OnPlayClick()
     {
+        Game.Instance.sound.PlayEffect("Se_UI_Button");
         Game.Instance.LoadLevel(4);
     }
 
+    public void OnReturnClick()
+    {
+        Game.Instance.sound.PlayEffect("Se_UI_Button");
+        Game.Instance.LoadLevel(gm.lastsecenIndex);
+    }
 }

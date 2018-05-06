@@ -147,11 +147,12 @@ public class UIBoard : View
 
     public void OnPauseButtonClick()
     {
+        Game.Instance.sound.PlayEffect("Se_UI_Button");
         PauseArgs e = new PauseArgs
         {
             coin = Coin,
             distance = Distance,
-            score = Coin * 3 + Distance + Goal * 20
+            score = Distance * (Goal + 1) + Coin * 10
         };
         SendEvent(Const.E_PauseGame,e);
     }
@@ -308,6 +309,7 @@ public class UIBoard : View
 
     public void OnGoalBtnClick()
     {
+        Game.Instance.sound.PlayEffect("Se_UI_Shot");
         SendEvent(Const.E_GoalBtnClick);
         btnGoal.interactable = false;
         sliderGoal.value = 0;

@@ -17,6 +17,12 @@ public class StartupController : Controller
         RegisterController(Const.E_ContinueGame, typeof(ContinueGameController));
         RegisterController(Const.E_BriberyClick, typeof(BriberyClickController));
         RegisterController(Const.E_BuyTools, typeof(BuyToolsController));
+        RegisterController(Const.E_BuyFootball, typeof(BuyFootballController));
+        RegisterController(Const.E_EquipFootball, typeof(EquipFootballController));
+        RegisterController(Const.E_BuySkin, typeof(BuySkinController));
+        RegisterController(Const.E_EquipSkin, typeof(EquipSkinController));
+        RegisterController(Const.E_BuyCloth, typeof(BuyClothController));
+        RegisterController(Const.E_EquipCloth, typeof(EquipClothController));
         //注册model
         RegisterModel(new GameModel());
 

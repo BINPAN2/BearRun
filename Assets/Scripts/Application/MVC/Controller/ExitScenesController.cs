@@ -22,5 +22,8 @@ public class ExitScenesController : Controller
             default:
                 break;
         }
+
+        GameModel gm = GetModel<GameModel>();
+        gm.lastsecenIndex = e.SceneIndex;
     }
 }

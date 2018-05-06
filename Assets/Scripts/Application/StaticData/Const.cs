@@ -33,6 +33,22 @@ public static class Const{
 
     //买道具
     public const string E_BuyTools = "E_BuyTools";
+
+    //买足球皮肤
+    public const string E_BuyFootball = "E_BuyFootball";
+    //装备足球皮肤
+    public const string E_EquipFootball = "E_EquipFootball";
+
+    //买人物皮肤
+    public const string E_BuySkin = "E_BuySkin";
+    //装备人物皮肤
+    public const string E_EquipSkin = "E_EquipSkin";
+
+    //买衣服皮肤
+    public const string E_BuyCloth = "E_BuyCloth";
+    //装备衣服皮肤
+    public const string E_EquipCloth = "E_EquipCloth";
+
     //view名字
     public const string V_PlayerMove = "V_PlayerMove";
     public const string V_PlayerAnim = "V_PlayerAnim";
@@ -42,6 +58,7 @@ public static class Const{
     public const string V_Dead = "V_Dead";
     public const string V_Final = "V_Final";
     public const string V_MainMenu = "V_MainMenu";
+    public const string V_Shop = "V_Shop";
 
     public const string V_BuyTools = "V_BuyTools";
     //Model名字
@@ -63,4 +80,12 @@ public enum ItemKind
     InvincibleItem,
     MagnetItem,
     MultiplyItem
+}
+
+public enum ItemState
+{
+    Buy,
+    UnBuy,
+    Equiped
+
 }

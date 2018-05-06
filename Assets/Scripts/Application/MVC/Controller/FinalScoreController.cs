@@ -13,6 +13,7 @@ public class FinalScoreController : Controller
         UIFinalScore finalscore = GetView<UIFinalScore>();
         board.Hide();
         dead.Hide();
+        gm.Coin += board.Coin;
         finalscore.Show();
         //更新Exp
         gm.Exp += (board.Coin*10 + board.Distance * (board.Goal + 1));

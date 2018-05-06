@@ -28,7 +28,7 @@ public class People : Obstacles
     public override void OnUnSpawn()
     {
         base.OnUnSpawn();
-        Anim.transform.position = Vector3.zero;
+        Anim.transform.localPosition= Vector3.zero;
         IsBlock = false;
         IsFly = false;
     }

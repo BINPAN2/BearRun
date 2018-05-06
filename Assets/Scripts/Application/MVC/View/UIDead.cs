@@ -22,6 +22,7 @@ public class UIDead : View
 
     public void OnCancleClick()
     {
+        Game.Instance.sound.PlayEffect("Se_UI_Button");
         SendEvent(Const.E_ShowFinal);
     }
 
@@ -38,6 +39,7 @@ public class UIDead : View
 
     public void OnBriberyClick()
     {
+        Game.Instance.sound.PlayEffect("Se_UI_Button");
         CoinArgs e = new CoinArgs
         {
             Coin = BriberyTime * 500

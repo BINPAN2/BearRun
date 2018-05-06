@@ -6,7 +6,7 @@ public class GameModel :Model {
 
 
     #region 常量
-    public const int InitCoin = 1000;
+    public const int InitCoin = 100000;
     #endregion
 
     #region 事件
@@ -24,6 +24,13 @@ public class GameModel :Model {
     private int m_exp;
     private int m_coin;
 
+    private int m_takeonFootball = 0;//已装备的球的索引
+    public List<int> BuyFootball = new List<int>();//已经买了的球的list
+
+    private SkinId m_takeonSkin = new SkinId() { SkinID=0, ClothID = 0};//已装备的皮肤的索引
+    public List<SkinId> BuySkin = new List<SkinId>();
+
+    public int lastsecenIndex = 1;
     #endregion
 
     #region 属性
@@ -158,6 +165,32 @@ public class GameModel :Model {
         }
     }
 
+    public int TakeonFootball
+    {
+        get
+        {
+            return m_takeonFootball;
+        }
+
+        set
+        {
+            m_takeonFootball = value;
+        }
+    }
+
+    public SkinId TakeonSkin
+    {
+        get
+        {
+            return m_takeonSkin;
+        }
+
+        set
+        {
+            m_takeonSkin = value;
+        }
+    }
+
     #endregion
 
     #region 方法
@@ -170,6 +203,77 @@ public class GameModel :Model {
         Exp = 0;
         Level = 1;
         Coin = InitCoin;
+
+        InitSkin();
+    }
+
+
+    public void InitSkin()
+    {
+        //足球皮肤
+        BuyFootball.Add(m_takeonFootball);
+        //人物皮肤
+        BuySkin.Add(TakeonSkin);
+    }
+
+    //检查足球状态（已装备/已购买/未购买）
+    public ItemState CheckItemState(int i )
+    {
+        if (i==TakeonFootball)
+        {
+            return ItemState.Equiped;
+        }
+        else
+        {
+            if (BuyFootball.Contains(i))
+            {
+                return ItemState.Buy;
+            }
+            else
+            {
+                return ItemState.UnBuy;
+            }
+        }
+    }
+
+    ////检查皮肤状态（已装备/已购买/未购买）
+    public ItemState CheckSkinState(int i)
+    {
+        if (i == TakeonSkin.SkinID)
+        {
+            return ItemState.Equiped;
+        }
+        else
+        {
+            foreach (var item in BuySkin)
+            {
+                if (item.SkinID == i)
+                {
+                    return ItemState.Buy;
+                }
+            } 
+                return ItemState.UnBuy;
+        }
+    }
+
+    ////检查衣服状态（已装备/已购买/未购买）
+    public ItemState CheckClothState(SkinId id)
+    {
+        if (id.SkinID == TakeonSkin.SkinID && id.ClothID == TakeonSkin.ClothID)
+        {
+            return ItemState.Equiped;
+        }
+        else
+        {
+            foreach (var item in BuySkin)
+            {
+                if (id.SkinID == item.SkinID && id.ClothID == item.ClothID)
+                {
+                    return ItemState.Buy;
+                }
+            }
+            return ItemState.UnBuy;
+        }
     }
 
     //金币是否足够
@@ -194,3 +298,10 @@ public class GameModel :Model {
     #endregion
 
 }
+
+public class SkinId
+{
+    public int SkinID;
+    public int ClothID;
+}
+

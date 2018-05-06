@@ -12,14 +12,19 @@ public class EnterScenesController : Controller
         switch (e.SceneIndex)
         {
             case 1:
+                Game.Instance.sound.PlayBG("Bgm_JieMian");
                 RegisterView(GameObject.Find("Canvas").transform.Find("MainMenu").GetComponent<UIMainMenu>());
                 break;
             case 2:
+                Game.Instance.sound.PlayBG("Bgm_JieMian");
+                RegisterView(GameObject.Find("Canvas").transform.Find("UIShop").GetComponent<UIShop>());
                 break;
             case 3:
-                RegisterView(GameObject.Find("Canvas").transform.Find("BuyToolsBG").GetComponent<UIBuyTools>());
+                Game.Instance.sound.PlayBG("Bgm_JieMian");
+                RegisterView(GameObject.Find("Canvas").transform.Find("UIBuyTools").transform.Find("BuyToolsBG").GetComponent<UIBuyTools>());
                 break;
             case 4:
+                Game.Instance.sound.PlayBG("Bgm_ZhanDou");
                 RegisterView(GameObject.FindWithTag(Tag.player).GetComponent<PlayerMove>());
                 RegisterView(GameObject.FindWithTag(Tag.player).GetComponent<PlayerAnim>());
                 RegisterView(GameObject.Find("Canvas").transform.Find("UIBoard").GetComponent<UIBoard>());

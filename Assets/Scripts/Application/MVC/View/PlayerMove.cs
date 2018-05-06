@@ -57,6 +57,8 @@ public class PlayerMove : View
     IEnumerator Invinciblecor;//无敌协程
     IEnumerator Goalcor;//射门协程
 
+    public MeshRenderer ballMesh;
+    public SkinnedMeshRenderer SkinMeshRender;
 
     #endregion
 
@@ -132,7 +134,7 @@ public class PlayerMove : View
         if (Input.GetMouseButton(0) && activeInput == true)
         {
             Vector3 Dir = Input.mousePosition- m_mousePos ;
-            if (Dir.magnitude>20)
+            if (Dir.magnitude>50)
             {
                 if (Mathf.Abs(Dir.x)>Mathf.Abs(Dir.y)&&Dir.x>0)
                 {
@@ -568,6 +570,9 @@ public class PlayerMove : View
         m_Ball = transform.Find("Ball").gameObject;
         m_trail = GameObject.Find("Trail").gameObject;
         m_trail.gameObject.SetActive(false);
+
+        ballMesh.material = Game.Instance.staticData.GetFootballInfo(gm.TakeonFootball).FootballMaterial;
+        SkinMeshRender.material = Game.Instance.staticData.GetPlayerSkinInfo(gm.TakeonSkin.SkinID, gm.TakeonSkin.ClothID).FootballMaterial;
     }
     private void Start()
     {

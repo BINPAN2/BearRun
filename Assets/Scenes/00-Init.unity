@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -117,9 +117,9 @@ NavMeshSettings:
 --- !u!1 &322865620
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 322865621}
   - component: {fileID: 322865625}
@@ -136,7 +136,7 @@ GameObject:
 --- !u!4 &322865621
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322865620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -149,7 +149,7 @@ Transform:
 --- !u!114 &322865622
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322865620}
   m_Enabled: 1
@@ -157,14 +157,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7e9c73356add04e8aacf54530746bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 
   objectPool: {fileID: 0}
   sound: {fileID: 0}
   staticData: {fileID: 0}
 --- !u!114 &322865623
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322865620}
   m_Enabled: 1
@@ -172,12 +171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012dabaaf7e796c47a57b87979f5888c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 
   ResourceDir: Objects
 --- !u!114 &322865624
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322865620}
   m_Enabled: 1
@@ -185,12 +183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67565da4f2a5be1438c1091b99daa724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 
   ResourcesDir: Sound
 --- !u!114 &322865625
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322865620}
   m_Enabled: 1
@@ -198,4 +195,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac87e89c9bd10c54988df1973d022a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 
+  FootballMat:
+  - {fileID: 2100000, guid: 0e5bced37bc1baf479be9343f4b00881, type: 2}
+  - {fileID: 2100000, guid: 1b43aee340bff3642ab0ced6f7c8184d, type: 2}
+  - {fileID: 2100000, guid: 184362e0ecc7bf348900efdce1903c86, type: 2}
+  PlayerMat:
+  - {fileID: 2100000, guid: ac91b23165b217f499a8980b28806b41, type: 2}
+  - {fileID: 2100000, guid: 6e1a4f24d1af2bb42a96bcd9d9530c3f, type: 2}
+  - {fileID: 2100000, guid: 9b84e77c83e4ca44680a340eaa27f6d7, type: 2}
+  - {fileID: 2100000, guid: 5f8e07382bac60c47ac905e5d58dc0d7, type: 2}
+  - {fileID: 2100000, guid: ffb190f603f0a2142b544edbc1645396, type: 2}
+  - {fileID: 2100000, guid: 942a29798e3750448908e2d030112444, type: 2}
+  - {fileID: 2100000, guid: 6dc72ffcd2927e2409de615d809dd93d, type: 2}
+  - {fileID: 2100000, guid: de64f445c2d7df341bd37dfcbca9d3ac, type: 2}
+  - {fileID: 2100000, guid: 71be01dafbdb2274c96cd93767fbe675, type: 2}
